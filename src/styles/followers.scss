@@ -1,0 +1,81 @@
+@import './variables.scss';
+
+@mixin button {
+  height: 29px;
+  padding: 8px 10px;
+  border-radius: 20px;
+  border: 1px solid $primary-color;
+
+  font: 600 12px/12px Open Sans;
+}
+
+.follower-section {
+  width: 375px;
+  background-color: #1B1B1B;
+  height: 100vh;
+  position: fixed;
+  right: 0;
+  top: 0;
+
+  .follower-list {
+    padding: 32px 16px;
+    display: flex;
+    gap: 16px;
+    flex-direction: column;
+  }
+}
+
+.follower-item {
+  display: flex;
+  height: 45px;
+  color: $primary-color;
+
+  & img {
+    height: 40px;
+    width: 40px;
+    border: 1px solid #F8F8F8;
+    border-radius: 5px;
+  }
+
+  .follower-name {
+    padding-left: 16px;
+    font: 400 16px/24px $font-family;
+    text-align: left;
+
+    & span {
+      font: 400 14px/21px $font-family;
+      color: #fff8;
+      display: block;
+    }
+
+  }
+
+
+  .follower-btn {
+    @include button;
+    margin-left: auto;
+    color: $primary-color;
+  }
+
+  .following-btn {
+    color: $primary-background-color;
+    background-color: $primary-color;
+  }
+}
+
+.MuiTabs-root {
+  color: $primary-color;
+
+  & .MuiButtonBase-root {
+    border-bottom: 1px solid #fff8;
+    color: #fff8;
+  }
+
+  & .MuiButtonBase-root.Mui-selected {
+    color: $primary-color;
+  }
+
+  & .MuiTabs-indicator {
+    background-color: $primary-color;
+  }
+}

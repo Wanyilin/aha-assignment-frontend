@@ -1,0 +1,142 @@
+@import './variables.scss';
+
+// Define mixins for repeated styles
+@mixin tag-content {
+  background: #fff6;
+  border-radius: 8px;
+  position: relative;
+}
+
+@mixin tag-title {
+  font-weight: 400;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tags-page {
+  padding: 20px;
+  color: $primary-color;
+
+  & > p {
+    margin-bottom: 24px;
+    font: 400 24px/36px $font-family;
+  }
+
+  .skeleton {
+    width: 150px;
+    height: 150px;
+  }
+
+  .tags-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+
+    .tag-card {
+      background-color: transparent;
+      color: inherit;
+      width: 150px;
+      height: 199px;
+
+      .tag-content {
+        @include tag-content;
+        height: 150px;
+
+        span {
+          font: 700 24px/42px $font-family;
+          padding: 0 10px;
+          position: absolute;
+          bottom: 14px;
+          left: 10px;
+          border-radius: 8px;
+          border: 4px solid;
+        }
+      }
+
+      .tag-text {
+        display: flex;
+        flex-direction: column;
+
+        .tag-title {
+          @include tag-title;
+          font-size: 14.9px;
+          line-height: 22.35px;
+        }
+
+        .tag-subtitle {
+          color: $secondary-color;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: $breakpoint-sm) {
+  .tags-page {
+    margin-left: 80px;
+    padding: 80px 257px 0;
+    width: auto;
+    height: 100%;
+
+    .tags-list {
+      gap: 36px 24px;
+
+      .tag-card {
+        .tag-content {
+          height: 150px;
+        }
+
+        .tag-title {
+          margin-top: 10px;
+        }
+
+        .tag-subtitle {
+          font-size: 11.17px;
+          line-height: 16.76px;
+          letter-spacing: 0.3725px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: $breakpoint-sm) {
+  .tags-page {
+    padding: 10px 20px;
+    margin-top: 50px;
+
+    .tags-list {
+      gap: 24px;
+
+      .tag-card {
+        width: 150px;
+        height: auto;
+
+        .tag-content {
+          height: 120px;
+
+          span {
+            font-size: 18px;
+            line-height: 32px;
+            bottom: 8px;
+            left: 8px;
+            border-width: 2px;
+          }
+        }
+
+        .tag-text {
+          .tag-title {
+            font-size: 12px;
+            line-height: 18px;
+          }
+
+          .tag-subtitle {
+            font-size: 10px;
+            line-height: 14px;
+          }
+        }
+      }
+    }
+  }
+}
